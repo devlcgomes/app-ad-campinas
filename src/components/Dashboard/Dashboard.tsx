@@ -9,6 +9,80 @@ const getGreeting = () => {
   return "Boa noite";
 };
 
+const getNextEvents = () => {
+  const today = new Date();
+  const events = [];
+  const daysToAdd = 7;
+
+  for (let i = 0; i < daysToAdd; i++) {
+    const date = new Date(today);
+    date.setDate(today.getDate() + i);
+    const weekDay = date.getDay();
+
+    // Cultos regulares
+    if (weekDay === 3) {
+      // Quarta
+      events.push({
+        id: `culto-quarta-${date.getTime()}`,
+        title: "Culto de Quarta",
+        displayDate: "Quarta-feira - 19:30",
+        type: "culto",
+        participants: [
+          "https://ui-avatars.com/api/?name=User+1&background=6366f1&color=fff",
+          "https://ui-avatars.com/api/?name=User+2&background=6366f1&color=fff",
+          "https://ui-avatars.com/api/?name=User+3&background=6366f1&color=fff",
+        ],
+      });
+    } else if (weekDay === 5) {
+      // Sexta
+      events.push({
+        id: `culto-sexta-${date.getTime()}`,
+        title: "Culto de Sexta",
+        displayDate: "Sexta-feira - 19:30",
+        type: "culto",
+        participants: [
+          "https://ui-avatars.com/api/?name=User+1&background=6366f1&color=fff",
+          "https://ui-avatars.com/api/?name=User+2&background=6366f1&color=fff",
+        ],
+      });
+    } else if (weekDay === 0) {
+      // Domingo
+      events.push({
+        id: `culto-domingo-${date.getTime()}`,
+        title: "Culto de Domingo",
+        displayDate: "Domingo - 19:00",
+        type: "culto",
+        participants: [
+          "https://ui-avatars.com/api/?name=User+1&background=6366f1&color=fff",
+          "https://ui-avatars.com/api/?name=User+2&background=6366f1&color=fff",
+          "https://ui-avatars.com/api/?name=User+3&background=6366f1&color=fff",
+        ],
+      });
+    } else if (weekDay === 2) {
+      // Terça
+      events.push({
+        id: `ensaio-${date.getTime()}`,
+        title: "Ensaio Geral",
+        displayDate: "Terça-feira - 19:30",
+        type: "ensaio",
+        participants: [
+          "https://ui-avatars.com/api/?name=User+1&background=6366f1&color=fff",
+          "https://ui-avatars.com/api/?name=User+2&background=6366f1&color=fff",
+        ],
+      });
+    }
+  }
+
+  return events
+    .sort((a, b) => {
+      // Ordena por data real para manter a sequência correta
+      const dateA = new Date(parseInt(a.id.split("-").pop() || "0"));
+      const dateB = new Date(parseInt(b.id.split("-").pop() || "0"));
+      return dateA.getTime() - dateB.getTime();
+    })
+    .slice(0, 3);
+};
+
 interface MenuItem {
   id: string;
   icon: string;
@@ -18,31 +92,13 @@ interface MenuItem {
 
 export const Dashboard = () => {
   const [activeTab, setActiveTab] = useState("agenda");
+  const upcomingEvents = getNextEvents();
 
   const menuItems: MenuItem[] = [
     { id: "agenda", icon: "📅", title: "Agenda", notifications: 2 },
     { id: "repertorio", icon: "🎵", title: "Repertório" },
     { id: "equipe", icon: "👥", title: "Equipe", notifications: 1 },
     { id: "ensaios", icon: "🎸", title: "Ensaios" },
-  ];
-
-  const upcomingEvents = [
-    {
-      id: 1,
-      title: "Ensaio Geral",
-      date: "Hoje, 19:30",
-      participants: [
-        "https://ui-avatars.com/api/?name=User+1&background=6366f1&color=fff",
-        "https://ui-avatars.com/api/?name=User+2&background=6366f1&color=fff",
-        "https://ui-avatars.com/api/?name=User+3&background=6366f1&color=fff",
-      ],
-    },
-    {
-      id: 2,
-      title: "Culto Domingo",
-      date: "Amanhã, 18:00",
-      participants: ["user2.jpg", "user4.jpg", "user5.jpg"],
-    },
   ];
 
   return (
@@ -100,13 +156,13 @@ export const Dashboard = () => {
             {upcomingEvents.map((event) => (
               <motion.div
                 key={event.id}
-                className="event-card"
+                className={`event-card ${event.type}`}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <div className="event-info">
                   <h4>{event.title}</h4>
-                  <p>{event.date}</p>
+                  <p>{event.displayDate}</p>
                 </div>
                 <div className="event-participants">
                   {event.participants.map((participant, index) => (

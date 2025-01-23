@@ -166,6 +166,14 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
+.event-card.culto {
+  border-left: 4px solid #6366f1;
+}
+
+.event-card.ensaio {
+  border-left: 4px solid #10b981;
+}
+
 .event-info h4 {
   font-size: 16px;
   font-weight: 600;
