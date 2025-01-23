@@ -1,0 +1,40 @@
+Instruções principais para a criação do app.
+
+# Telas de Onboarding
+
+1. Primeira tela:
+
+   - Título: "Bem-vindo ao Worship Team"
+   - Imagem ilustrativa de uma equipe de louvor
+   - Texto: "Gerencie sua equipe de louvor de forma simples e eficiente"
+   - Botão para próxima tela
+
+2. Segunda tela:
+   - Título: "Organize seus ensaios"
+   - Imagem ilustrativa de uma agenda/calendário
+   - Texto: "Agende ensaios, compartilhe partituras e escalas com sua equipe"
+   - Botão para começar a usar o app
+
+# Funcionalidades Principais
+
+## Sistema de Usuários
+
+- Login diferenciado para líderes e membros
+- Níveis de acesso específicos por função
+
+## Gerenciamento Musical
+
+- Repertório completo da equipe
+- Histórico de músicas executadas
+- Músicas ainda não utilizadas
+- Sistema de sugestões para próximos ensaios
+
+## Recursos de Organização
+
+- Gerenciamento de escalas
+- Compartilhamento de cifras e partituras
+- Agenda de ensaios
+- Material de apoio para ensaios
+
+
+quero fazer com react native, me indique boas ferramentas para tal 
