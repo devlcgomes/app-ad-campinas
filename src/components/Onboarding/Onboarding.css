@@ -1,0 +1,150 @@
+.onboarding-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.onboarding-step {
+  background: white;
+  border-radius: 32px;
+  padding: 40px 24px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.onboarding-image {
+  width: 180px;
+  height: 180px;
+  margin-bottom: 32px;
+  background: rgba(99, 102, 241, 0.1);
+  padding: 32px;
+  border-radius: 50%;
+}
+
+h1 {
+  color: #111827;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+p {
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 32px;
+  max-width: 300px;
+}
+
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.feature-item {
+  background: rgba(99, 102, 241, 0.05);
+  padding: 16px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.feature-icon {
+  font-size: 20px;
+}
+
+.feature-text {
+  color: #4b5563;
+  font-size: 15px;
+}
+
+.navigation {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #6366f1;
+  width: 24px;
+  border-radius: 12px;
+}
+
+.next-button {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(99, 102, 241, 0.1);
+}
+
+.next-button:hover {
+  background: #4f46e5;
+  box-shadow: 0 4px 8px rgba(99, 102, 241, 0.2);
+}
+
+@media (max-width: 480px) {
+  .onboarding-step {
+    padding: 32px 20px;
+  }
+
+  .onboarding-image {
+    width: 140px;
+    height: 140px;
+    padding: 24px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .feature-item {
+    padding: 14px;
+  }
+
+  .feature-text {
+    font-size: 14px;
+  }
+}
