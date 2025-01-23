@@ -24,7 +24,6 @@ export const Dashboard = () => {
     { id: "repertorio", icon: "🎵", title: "Repertório" },
     { id: "equipe", icon: "👥", title: "Equipe", notifications: 1 },
     { id: "ensaios", icon: "🎸", title: "Ensaios" },
-    { id: "chat", icon: "💬", title: "Chat", notifications: 3 },
   ];
 
   const upcomingEvents = [
@@ -53,14 +52,14 @@ export const Dashboard = () => {
         <div className="header-content">
           <div className="user-info">
             <motion.img
-              src="https://ui-avatars.com/api/?name=João+Silva&background=6366f1&color=fff"
+              src="https://ui-avatars.com/api/?name=Luciano+Gomes&background=6366f1&color=fff"
               alt="Perfil"
               className="profile-image"
               whileTap={{ scale: 0.95 }}
             />
             <div className="greeting">
-              <h2>{getGreeting()}, João</h2>
-              <p>Guitarrista</p>
+              <h2>{getGreeting()}, Luciano!</h2>
+              <p>Tecladista</p>
             </div>
           </div>
           <motion.button
